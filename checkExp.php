@@ -27,4 +27,4 @@ function checkExplorer() {
 	echo $parsed;
 	return $parsed;
 }
-checkExplorer();
+//$res = checkExplorer();

@@ -27,4 +27,4 @@ function checkRPC() {
 	echo $parsed;
 	return $parsed;
 }
-checkRPC();
+//checkRPC();
