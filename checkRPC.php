@@ -11,8 +11,6 @@ function checkRPC() {
 
         $json_encoded_data = json_encode($data);
 
-        //var_dump($json_encoded_data);
-
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json_encoded_data);
