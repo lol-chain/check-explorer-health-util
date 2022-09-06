@@ -19,6 +19,10 @@ $stop_command = "./exe_stop.sh";
 $res_EXP = checkExplorer();
 $res_RPC = 100000;
 	#checkRPC();
+# toDo 
+# check if res(EXP||RPC) == Integers
+# handle res(EXP||RPC) != Integers
+# then
 # compare block numbers
 if(intVal($res_EXP) == intVal($res_RPC)){
 	echo 'MATCH';
