@@ -19,7 +19,12 @@ example for releases compile: ```mix distillery.release```
 
 2b) Fix start/stop permissions (ensure executable)
   ```chmod ug+x exec_start.sh && chmod ug+x exec_stop.sh```
-  
+
+note: this program is best run with screen, and requires an env.txt file in explorer path. (env not provided, env.example in explorer repository)
+
+3a) Open screen
+```screen -S explorer-health```
+
 3) Change directory into health, and execute the strategy (90 second loop)
    ```sh run.sh```
    
