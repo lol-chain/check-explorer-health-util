@@ -18,7 +18,7 @@ example for releases compile: ```mix distillery.release```
 ```cd explorer && git clone https://github.com/lol-chain/check-explorer-health-util health```
 
 2b) Fix start/stop permissions (ensure executable)
-```chmod ug+x exec_start.sh && chmod ug+x exec_stop.sh```
+```chmod ug+x exe_start.sh && chmod ug+x exe_stop.sh```
 
 note: this program is best run with screen, and requires an env.txt file in explorer path. (env not provided, env.example in explorer repository)
 
