@@ -15,20 +15,43 @@ $stop_command = "./exe_stop.sh";
 #echo shell_exec(escapeshellarg($start_command)); 
 # wait 20 seconds
 #sleep(20);
-# proceed to check EXP(explorer) && RPC(testnet.kekchain.com)
 $res_EXP = checkExplorer();
-$res_RPC = 100000;
-	#checkRPC();
-# toDo 
+$res_RPC = checkRPC();
 # check if res(EXP||RPC) == Integers
 # handle res(EXP||RPC) != Integers
-# then
-# compare block numbers
-if(intVal($res_EXP) == intVal($res_RPC)){
+# type checks
+$res_EXP_type = gettype($res_EXP);
+$res_RPC_type = gettype($res_RPC);
+if($res_RPC_type != $res_EXP_type){
+	echo $res_RPC_type;
+	echo $res_EXP_type;
+	echo 'Mismatched response in comparison';
+	if($res_RPC_type != 'integer' && $res_EXP_type == 'integer' && is_int($res_EXP_type)){
+		echo 'Explorer status: OK';
+		echo 'RPC status: Offline';
+		$date = date('Y/m/d H:i:s');
+		$txt = "RPC NOT IN SYNC: @ " . $date . " ";
+		$myfile = file_put_contents('rpc_notsynced_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+		return $txt;		
+	}
+	if($res_EXP_type != 'integer' && $res_RPC_type == 'integer' && is_int($res_RPC_type)){
+	         echo 'RPC status: OK';
+	         echo 'Explorer status: Offline';
+	         $date = date('Y/m/d H:i:s');
+	         $txt = "Explorer NOT IN SYNC: @ " . $date . " ";
+	         $myfile = file_put_contents('explorer_notsynced_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+	         return $txt;
+	}
+}
+# enforce integer types
+echo "Proceeding comparison of block numbers...";
+# proceed to check EXP(explorer) && RPC(testnet.kekchain.com)
+if(is_int($res_EXP) && is_int($res_RPC) && intVal($res_EXP) == intVal($res_RPC)){
 	echo 'MATCH';
         $date = date('Y/m/d H:i:s');
         $txt = "EXPLORER IN SYNC: @ " . $date . " ";
         $myfile = file_put_contents('explorer_synced_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+	return $txt;
 } else {
 	if(intVal($res_EXP) > intVal($res_RPC)){
 		echo 'EXPLORER IS ON MAIN CHAIN';
@@ -80,7 +103,7 @@ if(intVal($res_EXP) == intVal($res_RPC)){
 				} else {
 					$date = date('Y/m/d H:i:s');
 					$txt = "EXPLORER NOT IN SYNC: REBOOTING @ " . $date . " ";
-					$myfile = file_put_contents('explorer_sync_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+					$myfile = file_put_contents('explorer_notsynced_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 					echo 'REBOOTING EXPLORER';
 					echo shell_exec(escapeshellarg($stop_command));
 					sleep(5);
