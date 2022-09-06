@@ -1,6 +1,3 @@
 <?php
-$path = "checkExplorer.php";
-echo shell_exec('php '.escapeshellarg($path));
-
-
-
+$health_path = "checkExplorer.php";
+echo shell_exec('php '.escapeshellarg($health_path));
