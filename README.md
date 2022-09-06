@@ -22,10 +22,10 @@ example for releases compile: ```mix distillery.release```
 
 note: this program is best run with screen, and requires an env.txt file in explorer path. (env not provided, env.example in explorer repository)
 
-3a) Open screen
+3) Open screen
 ```screen -S explorer-health```
 
-3) Change directory into health, and execute the strategy (90 second loop)
+3b) Change directory into health, and execute the strategy (90 second loop)
 ```sh run.sh```
    
 ## Success outputs: 
