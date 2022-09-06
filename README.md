@@ -6,7 +6,7 @@ Compatible for Kekchain Explorer: https://github.com/lol-chain/explorer
 Clone the health-check util into a directory within the explorer path.
 Assumes explorer has been built for production, directions may be passed on later;
 
-Example:
+## Installation Example:
 1a) Clone explorer (later recursively)  
 ```git clone https://github.com/lol-chain/explorer```
 
