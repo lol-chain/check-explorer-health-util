@@ -8,17 +8,17 @@ Assumes explorer has been built for production, directions may be passed on late
 
 Example:
 1) Clone explorer (later recursively)  
-  ```git clone https://github.com/lol-chain/explorer```
+```git clone https://github.com/lol-chain/explorer```
 
 1b) Build explorer for production, with distillery. (more details for explorer installation at explorer repository)
 
 example for releases compile: ```mix distillery.release```
 
 2) Change directory into explorer, and clone health-util
-  ```cd explorer && git clone https://github.com/lol-chain/check-explorer-health-util health```
+```cd explorer && git clone https://github.com/lol-chain/check-explorer-health-util health```
 
 2b) Fix start/stop permissions (ensure executable)
-  ```chmod ug+x exec_start.sh && chmod ug+x exec_stop.sh```
+```chmod ug+x exec_start.sh && chmod ug+x exec_stop.sh```
 
 note: this program is best run with screen, and requires an env.txt file in explorer path. (env not provided, env.example in explorer repository)
 
@@ -26,7 +26,7 @@ note: this program is best run with screen, and requires an env.txt file in expl
 ```screen -S explorer-health```
 
 3) Change directory into health, and execute the strategy (90 second loop)
-   ```sh run.sh```
+```sh run.sh```
    
 ## Success outputs: 
 
