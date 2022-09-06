@@ -7,14 +7,14 @@ Clone the health-check util into a directory within the explorer path.
 Assumes explorer has been built for production, directions may be passed on later;
 
 Example:
-1) Clone explorer (later recursively)  
+1a) Clone explorer (later recursively)  
 ```git clone https://github.com/lol-chain/explorer```
 
 1b) Build explorer for production, with distillery. (more details for explorer installation at explorer repository)
 
 example for releases compile: ```mix distillery.release```
 
-2) Change directory into explorer, and clone health-util
+2a) Change directory into explorer, and clone health-util
 ```cd explorer && git clone https://github.com/lol-chain/check-explorer-health-util health```
 
 2b) Fix start/stop permissions (ensure executable)
@@ -22,7 +22,7 @@ example for releases compile: ```mix distillery.release```
 
 note: this program is best run with screen, and requires an env.txt file in explorer path. (env not provided, env.example in explorer repository)
 
-3) Open screen
+3a) Open screen
 ```screen -S explorer-health```
 
 3b) Change directory into health, and execute the strategy (90 second loop)
