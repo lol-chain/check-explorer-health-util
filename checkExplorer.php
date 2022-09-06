@@ -6,14 +6,19 @@ include_once("./checkExp.php");
 $start_command = "./exe_start.sh";
 $stop_command = "./exe_stop.sh";
 
-echo shell_exec(escapeshellarg($stop_command));
-sleep(5);
-echo shell_exec(escapeshellarg($start_command)); 
-sleep(20);
-
+#devTests for proof of work
+# stop explorer
+#echo shell_exec(escapeshellarg($stop_command));
+# wait 5 seconds
+#sleep(5);
+# start explorer
+#echo shell_exec(escapeshellarg($start_command)); 
+# wait 20 seconds
+#sleep(20);
+# proceed to check EXP(explorer) && RPC(testnet.kekchain.com)
 $res_EXP = checkExplorer();
 $res_RPC = checkRPC();
-
+# compare block numbers
 if(intVal($res_EXP) == intVal($res_RPC)){
 	echo 'MATCH';
         $date = date('Y/m/d H:i:s');
